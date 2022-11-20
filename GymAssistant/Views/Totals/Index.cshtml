@@ -1,0 +1,58 @@
+﻿@model IEnumerable<GymAssistant.Models.Total>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Total</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowy total</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Wyciskanie leżac
+            </th>
+            <th>
+                Przysiad
+            </th>
+            <th>
+                Martwy ciąg
+            </th>
+            <th>
+                Total
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTraining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lawa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.przysiad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.martwy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.iD">Edytuj</a> |
+                <a asp-action="Delete" asp-route-id="@item.iD">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

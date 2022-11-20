@@ -1,0 +1,35 @@
+﻿@model IEnumerable<GymAssistant.Models.JakZrobicMase>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sposoby na mase</h1>
+
+<p>
+    <a asp-action="Create">Dodaj sposób</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Sposób
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sposob)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Opis</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+}     
+    </tbody>
+</table>

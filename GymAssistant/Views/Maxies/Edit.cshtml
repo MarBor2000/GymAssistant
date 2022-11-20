@@ -1,0 +1,44 @@
+﻿@model GymAssistant.Models.Maxy
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Maxa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label>Nazwa ćwiczenia</label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Obciążenie</label>
+                <input asp-for="wage" class="form-control" />
+                <span asp-validation-for="wage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Jednostka</label>
+                <input asp-for="unit" class="form-control" />
+                <span asp-validation-for="unit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Powrót do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

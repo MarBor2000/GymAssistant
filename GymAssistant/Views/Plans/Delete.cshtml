@@ -1,0 +1,43 @@
+﻿@model GymAssistant.Models.Plan
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3>Czy na pewno chcesz usunąć ten plan?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nazwa ćwiczenia
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Rozpisane ćwiczenia
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            Data rozpoczęcia treningu
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartTraining)
+        </dd>
+        <dt class = "col-sm-2">
+            Data zakończenia treningu
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndTraining)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Powrót do listy</a>
+    </form>
+</div>

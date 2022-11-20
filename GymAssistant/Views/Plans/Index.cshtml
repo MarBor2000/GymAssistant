@@ -1,0 +1,48 @@
+﻿@model IEnumerable<GymAssistant.Models.Plan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Twoje plany</h1>
+
+<p>
+    <a asp-action="Create">Dodaj Plan!</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Nazwa planu
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortBy="@ViewData["DataSort"]">Data rozpoczęcia treningu</a>
+
+            </th>
+            <th>
+                Data skończenia treningu
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTraining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTraining)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Plan</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<GymAssistant.Models.Maxy>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Maxy</h1>
+
+<p>
+    <a asp-action="Create">Dodaj ćwiczenie</a>
+</p>
+
+<form method="get" asp-action="Index">
+        <p>
+            <input type="Szukaj" placeholder = "Wprowadź nazwe ćwiczenia" value="" name="Search" style="width:500px;" />
+            <input type="submit" value="Szukaj" class="btn btn-primary"/>
+            <a asp-action="Index">Pokaż wszystkie ćwiczenia</a>
+        </p> 
+
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortBy="@ViewData["NazwaCw"]">Nazwa ćwiczenia</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortBy="@ViewData["Obciazenie"]">Obciążenie</a>
+            </th>
+            <th>
+                Jednostka
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unit)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

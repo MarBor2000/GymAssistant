@@ -1,0 +1,39 @@
+﻿@model GymAssistant.Models.Maxy
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Usuń</h1>
+
+<h3>Czy na pewno chcesz usunąć?</h3>
+<div>
+    <h4>Maxy</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nazwa ćwiczenia
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            Obciążenie
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.wage)
+        </dd>
+        <dt class = "col-sm-2">
+            Jednostka
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.unit)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Powrót do listy</a>
+    </form>
+</div>
